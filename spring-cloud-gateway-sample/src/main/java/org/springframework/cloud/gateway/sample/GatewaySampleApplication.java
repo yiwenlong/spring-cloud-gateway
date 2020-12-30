@@ -54,6 +54,16 @@ public class GatewaySampleApplication {
 	}
 
 	@Bean
+	public RouteLocator myRouteLocator(RouteLocatorBuilder builder) {
+		return builder.routes()
+				.route(p -> p
+						.path("/get")
+						.filters(f -> f.addRequestHeader("Hello", "World"))
+						.uri("http://httpbin.org:80"))
+				.build();
+	}
+
+	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		//@formatter:off
 		// String uri = "http://httpbin.org:80";

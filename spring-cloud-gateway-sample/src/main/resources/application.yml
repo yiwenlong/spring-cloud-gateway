@@ -41,3 +41,6 @@ logging:
     reactor.netty: DEBUG
 
 management.endpoints.web.exposure.include: '*'
+
+server:
+  port: 8000
